@@ -9,7 +9,6 @@ Thailand's pharmaceutical distribution network serves 5,000 SKUs to hospitals an
 ```mermaid
 flowchart LR
     KIN[Kinesis] --> SPS[Snowpipe Streaming]
-    SP --> RAW[RAW Tables]
     SPS --> RAW
     RAW --> DT[Dynamic Tables]
     DT --> ML[ML Functions]
