@@ -8,7 +8,7 @@ USE SCHEMA APP;
 CREATE OR REPLACE NOTIFICATION INTEGRATION aws_thailand_healthcare_pharma_dist_EMAIL_INT
   TYPE = EMAIL
   ENABLED = TRUE
-  ALLOWED_RECIPIENTS = ('jonathan.asvestis@snowflake.com');
+  ALLOWED_RECIPIENTS = ('<YOUR_EMAIL>');
 
 -- Alert: STOCKOUT_7DAY_ALERT
 CREATE OR REPLACE ALERT APP.STOCKOUT_7DAY_ALERT
@@ -22,7 +22,7 @@ IF (EXISTS (
 THEN
   CALL SYSTEM$SEND_EMAIL(
     'aws_thailand_healthcare_pharma_dist_EMAIL_INT',
-    'jonathan.asvestis@snowflake.com',
+    '<YOUR_EMAIL>',
     '[ALERT] Pharmaceutical Distribution: Critical SKU stockout risk within 7 days — replenishment needed',
     'Critical SKU stockout risk within 7 days — replenishment needed'
   );
@@ -41,7 +41,7 @@ IF (EXISTS (
 THEN
   CALL SYSTEM$SEND_EMAIL(
     'aws_thailand_healthcare_pharma_dist_EMAIL_INT',
-    'jonathan.asvestis@snowflake.com',
+    '<YOUR_EMAIL>',
     '[ALERT] Pharmaceutical Distribution: Unexpected demand spike detected — investigate and replenish',
     'Unexpected demand spike detected — investigate and replenish'
   );
