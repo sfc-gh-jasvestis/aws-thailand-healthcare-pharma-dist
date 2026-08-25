@@ -123,7 +123,7 @@ Industry research and Snowflake customer outcomes:
 - **ML-powered demand forecasting reduces pharmaceutical stockouts by 40-60% and excess inventory by 20-30%** — [McKinsey Pharma Operations](https://www.mckinsey.com/industries/life-sciences/our-insights)
 - **Event-driven replenishment reduces order-to-delivery cycle time by 50% vs batch processing** — [Gartner Supply Chain](https://www.gartner.com/en/supply-chain)
 - **Zuellig Pharma (Thailand) distributes to 30,000+ points of care across the country** — [Zuellig Pharma](https://www.zuelligpharma.com/)
-
+- **Sanofi** (Snowflake customer): 50% performance improvement, processing 100M patient records in 4 minutes on Snowflake -- [snowflake.com/customers/sanofi](https://www.snowflake.com/en/customers/all-customers/case-study/sanofi/)
 
 ## Key Demo Numbers
 
