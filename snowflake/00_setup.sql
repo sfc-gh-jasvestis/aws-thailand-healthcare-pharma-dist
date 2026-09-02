@@ -1,16 +1,13 @@
--- ============================================================================
--- Pharmaceutical Distribution
--- Pharmaceutical distribution intelligence for Thailand's ฿200B market — Kinesis streams order data, EventBridge triggers replenishment via Tasks + Streams, ML.FORECAST predicts demand by SKU, and Alerts prevent stockouts.
--- ============================================================================
-USE ROLE ACCOUNTADMIN;
-CREATE DATABASE IF NOT EXISTS PHARMA_DISTRIBUTION;
-CREATE WAREHOUSE IF NOT EXISTS PHARMA_WH WAREHOUSE_SIZE = 'MEDIUM' AUTO_SUSPEND = 120 AUTO_RESUME = TRUE;
-USE DATABASE PHARMA_DISTRIBUTION;
-CREATE SCHEMA IF NOT EXISTS RAW;
-CREATE SCHEMA IF NOT EXISTS CURATED;
-CREATE SCHEMA IF NOT EXISTS ML;
-CREATE SCHEMA IF NOT EXISTS AI;
-CREATE SCHEMA IF NOT EXISTS SEARCH;
-CREATE SCHEMA IF NOT EXISTS APP;
+-- Generated from generator/demo_specs/aws-thailand-healthcare-pharma-dist.json
+-- Regenerate with: python3 generator/gen_repo_docs.py aws-thailand-healthcare-pharma-dist
+-- This is the schema that is actually deployed for THAILAND_HEALTHCARE_PHARMA_DIST.
 
-USE WAREHOUSE PHARMA_WH;
+-- THAILAND_HEALTHCARE_PHARMA_DIST  (Pharmaceutical Distribution)
+-- generated from generator/demo_specs/aws-thailand-healthcare-pharma-dist.json - do not hand-edit
+CREATE DATABASE IF NOT EXISTS THAILAND_HEALTHCARE_PHARMA_DIST;
+CREATE SCHEMA IF NOT EXISTS THAILAND_HEALTHCARE_PHARMA_DIST.RAW;
+CREATE SCHEMA IF NOT EXISTS THAILAND_HEALTHCARE_PHARMA_DIST.CURATED;
+CREATE SCHEMA IF NOT EXISTS THAILAND_HEALTHCARE_PHARMA_DIST.APP;
+USE DATABASE THAILAND_HEALTHCARE_PHARMA_DIST;
+
+-- 5 real regions; entity names carry their region so the two always agree
