@@ -32,15 +32,22 @@ export default function HomePage() {
       .catch(() => {});
   }, []);
 
+
+  // KPI values come from /api/data, which reads CURATED.KPI_SUMMARY. The literal
+  // stays as a fallback so the card still renders if the API is unavailable.
+  const kpiVal = (title: string, fallback: string): string =>
+    (data?.kpiCards as { title: string; value: string }[] | undefined)
+      ?.find((k) => k.title === title)?.value ?? fallback;
+
   const title = narrative?.title || 'SEA AWS Demo';
 
   const executiveCockpit = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <KPICard title="Delivery On-Time" value="96.4%" status="neutral" />
-        <KPICard title="Stock-Out Risk" value="14 SKUs" status="danger" />
-        <KPICard title="Cold Chain Compliance" value="99.2%" status="neutral" />
-        <KPICard title="Distribution Points" value="2,847" status="neutral" />
+        <KPICard title="Delivery On-Time" value={kpiVal('Delivery On-Time', '96.4%')} status="neutral" />
+        <KPICard title="Stock-Out Risk" value={kpiVal('Stock-Out Risk', '14 SKUs')} status="danger" />
+        <KPICard title="Cold Chain Compliance" value={kpiVal('Cold Chain Compliance', '99.2%')} status="neutral" />
+        <KPICard title="Distribution Points" value={kpiVal('Distribution Points', '2,847')} status="neutral" />
       </div>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="lg:col-span-1">
@@ -87,9 +94,9 @@ export default function HomePage() {
   const domainTab1 = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <KPICard title="Forecast Accuracy" value="91%" />
-        <KPICard title="Safety Stock Days" value="18" />
-        <KPICard title="Expiry Risk (30d)" value="฿4.2M" />
+        <KPICard title="Forecast Accuracy" value={kpiVal('Forecast Accuracy', '91%')} />
+        <KPICard title="Safety Stock Days" value={kpiVal('Safety Stock Days', '18')} />
+        <KPICard title="Expiry Risk (30d)" value={kpiVal('Expiry Risk (30d)', '฿4.2M')} />
       </div>
       <Chart
         data={data?.detail || [{ x: 'Mon', y: 24 }, { x: 'Tue', y: 28 }, { x: 'Wed', y: 22 }, { x: 'Thu', y: 31 }, { x: 'Fri', y: 26 }, { x: 'Sat', y: 19 }, { x: 'Sun', y: 23 }]}
