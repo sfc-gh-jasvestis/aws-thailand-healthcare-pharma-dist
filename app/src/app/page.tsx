@@ -53,6 +53,7 @@ export default function HomePage() {
         <div className="lg:col-span-1">
           <GeoMap
             country="thailand"
+            labels={{ entity: 'Regions', event: 'Demand Records', alert: 'Stock-Outs' }}
             regions={data?.regions}
             markers={[{"label": "Bangkok", "value": "Central warehouse", "color": "blue", "size": "lg"}, {"label": "Chiang Mai", "value": "Northern hub", "color": "green", "size": "md"}, {"label": "Khon Kaen", "value": "NE hub: low stock", "color": "amber", "size": "md"}, {"label": "Hat Yai", "value": "Southern hub", "color": "green", "size": "sm"}]}
             routes={[{"from": "Bangkok", "to": "Chiang Mai", "color": "#29B5E8"}, {"from": "Bangkok", "to": "Khon Kaen", "color": "#F59E0B"}]}
@@ -83,8 +84,13 @@ export default function HomePage() {
         columns={[
           { key: 'id', header: '#' },
           { key: 'name', header: 'Region' },
+          { key: 'region', header: 'Region' },
           { key: 'status', header: 'Supply Status' },
-          { key: 'value', header: 'Fill Rate %' },
+          { key: 'm1', header: 'Fill Rate %' },
+          { key: 'm2', header: 'Stock Out Risk' },
+          { key: 'm3', header: 'Forecast Accuracy' },
+          { key: 'events', header: 'Demand Records' },
+          { key: 'alerts', header: 'Stock-Outs' },
         ]}
         data={data?.entities || []}
         title="Distribution Network Status"
