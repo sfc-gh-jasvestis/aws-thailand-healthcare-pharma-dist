@@ -53,6 +53,7 @@ export default function HomePage() {
         <div className="lg:col-span-1">
           <GeoMap
             country="thailand"
+            regions={data?.regions}
             markers={[{"label": "Bangkok", "value": "Central warehouse", "color": "blue", "size": "lg"}, {"label": "Chiang Mai", "value": "Northern hub", "color": "green", "size": "md"}, {"label": "Khon Kaen", "value": "NE hub: low stock", "color": "amber", "size": "md"}, {"label": "Hat Yai", "value": "Southern hub", "color": "green", "size": "sm"}]}
             routes={[{"from": "Bangkok", "to": "Chiang Mai", "color": "#29B5E8"}, {"from": "Bangkok", "to": "Khon Kaen", "color": "#F59E0B"}]}
             title="Geographic Overview"
@@ -69,7 +70,7 @@ export default function HomePage() {
           title="Distribution Volume (Weekly)"
         />
         <Chart
-          data={data?.categories || [{ category: 'North', count: 82 }, { category: 'Central', count: 74 }, { category: 'South', count: 91 }, { category: 'Highland', count: 68 }, { category: 'Coastal', count: 77 }]}
+          data={data?.categoryMetric || [{ category: 'North', count: 82 }, { category: 'Central', count: 74 }, { category: 'South', count: 91 }, { category: 'Highland', count: 68 }, { category: 'Coastal', count: 77 }]}
           type="bar"
           xKey="category"
           yKeys={[{ key: 'count', name: 'SKUs at Risk' }]}
